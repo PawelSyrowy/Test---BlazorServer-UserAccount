@@ -62,3 +62,5 @@ app.MapRazorComponents<App>()
 app.MapAdditionalIdentityEndpoints();
 
 app.Run();
+
+// dodanie Feature - Google Sign In
