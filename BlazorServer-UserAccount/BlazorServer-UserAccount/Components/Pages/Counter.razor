@@ -9,11 +9,25 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<hr />
+<p>@prev</p>
+<p>@curr</p>
+
 @code {
-    private int currentCount = 0;
+    private int? currentCount;
+
+    private int prev;
+    private int curr;
 
     private void IncrementCount()
     {
+        prev = currentCount.Value.ToString().Length;
+
+        if (currentCount is null)
+            currentCount = 0;
+
         currentCount++;
+
+        curr = currentCount.ToString().Length;
     }
 }
