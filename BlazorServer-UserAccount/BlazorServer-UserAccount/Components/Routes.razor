@@ -1,11 +1,23 @@
 ﻿@using BlazorServer_UserAccount.Components.Account.Shared
-<Router AppAssembly="typeof(Program).Assembly">
-    <Found Context="routeData">
-        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
-            <NotAuthorized>
-                <RedirectToLogin />
-            </NotAuthorized>
-        </AuthorizeRouteView>
-        <FocusOnNavigate RouteData="routeData" Selector="h1" />
-    </Found>
-</Router>
+<ErrorBoundary>
+    <ChildContent>
+        <Router AppAssembly="typeof(Program).Assembly">
+            <Found Context="routeData">
+                <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
+                    <NotAuthorized>
+                        <RedirectToLogin />
+                    </NotAuthorized>
+                </AuthorizeRouteView>
+                <FocusOnNavigate RouteData="routeData" Selector="h1" />
+            </Found>
+        </Router>
+    </ChildContent>
+    <ErrorContent>
+        <div class="page">
+            <div class="content px-4">
+                <h1>Trouble</h1>
+                <p>Please try again later.</p>
+            </div>
+        </div>
+    </ErrorContent>
+</ErrorBoundary>
