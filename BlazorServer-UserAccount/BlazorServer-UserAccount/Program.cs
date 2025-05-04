@@ -69,3 +69,4 @@ app.MapAdditionalIdentityEndpoints();
 app.Run();
 
 // dodanie Feature - Google Sign In
+// dodanie Feature - Gmail SMTP
